@@ -1,0 +1,16 @@
+c:\users\gordon\documents\visual studio 2012\Projects\Addresses\Addresses\bin\Debug\Addresses.exe.config
+c:\users\gordon\documents\visual studio 2012\Projects\Addresses\Addresses\bin\Debug\Addresses.exe
+c:\users\gordon\documents\visual studio 2012\Projects\Addresses\Addresses\bin\Debug\Addresses.pdb
+c:\users\gordon\documents\visual studio 2012\Projects\Addresses\Addresses\obj\Debug\Addresses.csprojResolveAssemblyReference.cache
+c:\users\gordon\documents\visual studio 2012\Projects\Addresses\Addresses\obj\Debug\MainWindow.baml
+c:\users\gordon\documents\visual studio 2012\Projects\Addresses\Addresses\obj\Debug\MainWindow.g.cs
+c:\users\gordon\documents\visual studio 2012\Projects\Addresses\Addresses\obj\Debug\App.g.cs
+c:\users\gordon\documents\visual studio 2012\Projects\Addresses\Addresses\obj\Debug\Addresses_MarkupCompile.cache
+c:\users\gordon\documents\visual studio 2012\Projects\Addresses\Addresses\obj\Debug\Addresses.g.resources
+c:\users\gordon\documents\visual studio 2012\Projects\Addresses\Addresses\obj\Debug\Addresses.Properties.Resources.resources
+c:\users\gordon\documents\visual studio 2012\Projects\Addresses\Addresses\obj\Debug\Addresses.csproj.GenerateResource.Cache
+c:\users\gordon\documents\visual studio 2012\Projects\Addresses\Addresses\obj\Debug\Addresses.exe
+c:\users\gordon\documents\visual studio 2012\Projects\Addresses\Addresses\obj\Debug\Addresses.pdb
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\bin\Debug\Addresses.exe.config
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\Addresses.exe
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\Addresses.pdb

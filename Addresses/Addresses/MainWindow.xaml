@@ -1,0 +1,29 @@
+﻿<Window x:Class="Addresses.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Addresses" Height="350" Width="525" Background="{x:Null}">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF012DF3" Offset="0.318"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label HorizontalAlignment="Left" Margin="56,83,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="23" Margin="129,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
+        <Label Content="Name:" RenderTransformOrigin="0.833,-0.883" Margin="66,45,393,242" Foreground="#FFFFFEFE"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="129,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
+        <Label Content="Address:" RenderTransformOrigin="0.833,-0.883" Margin="56,83,393,200" Foreground="#FFFBF7F7"/>
+        <Label Content="City, State, Zip:" RenderTransformOrigin="0.833,-0.883" Margin="25,125,393,159" Foreground="#FFFDFDFD"/>
+        <TextBox x:Name="tbCSZ" HorizontalAlignment="Left" Height="23" Margin="129,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
+        <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="129,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
+        <Label Content="Phone:" RenderTransformOrigin="0.833,-0.883" Margin="66,166,393,118" Foreground="#FFFBFBFB"/>
+        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="129,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
+        <Label Content="Email:" RenderTransformOrigin="0.833,-0.883" Margin="66,207,393,78" Foreground="#FFFBFBFB"/>
+        <Button x:Name="btnStart" Content="|&lt;&lt;" HorizontalAlignment="Left" Margin="127,248,0,0" VerticalAlignment="Top" Width="62" Click="btnStart_Click"/>
+        <Button x:Name="btnPrevious" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="211,248,0,0" VerticalAlignment="Top" Width="62" Click="btnPrevious_Click"/>
+        <Button x:Name="btnNext" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="296,248,0,0" VerticalAlignment="Top" Width="62" Click="btnNext_Click"/>
+        <Button x:Name="btnEnd" Content="&gt;&gt;|" HorizontalAlignment="Left" Margin="389,248,0,0" VerticalAlignment="Top" Width="62" Click="btnEnd_Click"/>
+
+    </Grid>
+</Window>

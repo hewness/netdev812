@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Addresses.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Addresses" Height="465" Width="525" Background="{x:Null}">
+        Title="Addresses" Height="465" Width="646" Background="{x:Null}">
     <Grid Margin="0,0,0,-3">
         <Grid.Background>
             <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0,0">
@@ -9,25 +9,31 @@
                 <GradientStop Color="#FF012DF3" Offset="0.318"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Label HorizontalAlignment="Left" Margin="56,83,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="23" Margin="129,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
-        <Label Content="Name:" RenderTransformOrigin="0.833,-0.883" Margin="66,45,393,242" Foreground="#FFFFFEFE"/>
-        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="129,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
-        <Label Content="Address:" RenderTransformOrigin="0.833,-0.883" Margin="56,83,393,200" Foreground="#FFFBF7F7"/>
-        <Label Content="City, State, Zip:" RenderTransformOrigin="0.833,-0.883" Margin="25,125,393,159" Foreground="#FFFDFDFD"/>
-        <TextBox x:Name="tbCSZ" HorizontalAlignment="Left" Height="23" Margin="129,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
-        <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="129,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
-        <Label Content="Phone:" RenderTransformOrigin="0.833,-0.883" Margin="66,166,393,118" Foreground="#FFFBFBFB"/>
-        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="129,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
-        <Label Content="Email:" RenderTransformOrigin="0.833,-0.883" Margin="66,207,393,78" Foreground="#FFFBFBFB"/>
-        <Button x:Name="btnStart" Content="|&lt;&lt;" HorizontalAlignment="Left" Margin="129,275,0,0" VerticalAlignment="Top" Width="62" Click="btnStart_Click"/>
-        <Button x:Name="btnPrevious" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="213,275,0,0" VerticalAlignment="Top" Width="62" Click="btnPrevious_Click"/>
-        <Button x:Name="btnNext" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="298,275,0,0" VerticalAlignment="Top" Width="62" Click="btnNext_Click"/>
-        <Button x:Name="btnEnd" Content="&gt;&gt;|" HorizontalAlignment="Left" Margin="391,275,0,0" VerticalAlignment="Top" Width="62" Click="btnEnd_Click" RenderTransformOrigin="0.452,1.455"/>
-        <Label x:Name="lblRecord" Content="" HorizontalAlignment="Left" Margin="350,238,0,0" VerticalAlignment="Top" Width="103" Foreground="#FFFBF6F6"/>
-        <Label Content="Search For:" HorizontalAlignment="Left" Margin="56,335,0,0" VerticalAlignment="Top" Foreground="#FFF5F1F1"/>
-        <TextBox x:Name="tbFind" HorizontalAlignment="Left" Height="23" Margin="129,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" TextChanged="tbFind_TextChanged"/>
-        <Button x:Name="FindBtn" Content="Find" HorizontalAlignment="Left" Margin="391,336,0,0" VerticalAlignment="Top" Width="62" Click="FindBtn_Click"/>
+        <GroupBox Header="Categories" HorizontalAlignment="Left" Margin="494,45,0,0" VerticalAlignment="Top" Height="106" Width="102" Foreground="White"/>
 
+        <Label HorizontalAlignment="Left" Margin="56,125,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="23" Margin="129,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
+        <Label Content="Name:" RenderTransformOrigin="0.833,-0.883" Margin="66,41,514,364" Foreground="#FFFFFEFE"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="129,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
+        <Label Content="Contact Type:" RenderTransformOrigin="0.833,-0.883" Margin="25,77,514,328" Foreground="#FFFFFEFE"/>
+        <TextBox x:Name="tbContactType" HorizontalAlignment="Left" Height="23" Margin="129,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Text=" "/>
+        <Label Content="Address:" RenderTransformOrigin="0.833,-0.883" Margin="56,122,514,276" Foreground="#FFFBF7F7"/>
+        <Label Content="City, State, Zip:" RenderTransformOrigin="0.833,-0.883" Margin="25,162,514,240" Foreground="#FFFDFDFD"/>
+        <TextBox x:Name="tbCSZ" HorizontalAlignment="Left" Height="23" Margin="129,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
+        <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="129,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
+        <Label Content="Phone:" RenderTransformOrigin="0.833,-0.883" Margin="66,203,514,194" Foreground="#FFFBFBFB"/>
+        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="129,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
+        <Label Content="Email:" RenderTransformOrigin="0.833,-0.883" Margin="66,244,514,156" Foreground="#FFFBFBFB"/>
+        <Button x:Name="btnStart" Content="|&lt;&lt;" HorizontalAlignment="Left" Margin="129,317,0,0" VerticalAlignment="Top" Width="62" Click="btnStart_Click"/>
+        <Button x:Name="btnPrevious" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="213,317,0,0" VerticalAlignment="Top" Width="62" Click="btnPrevious_Click"/>
+        <Button x:Name="btnNext" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="298,317,0,0" VerticalAlignment="Top" Width="62" Click="btnNext_Click"/>
+        <Button x:Name="btnEnd" Content="&gt;&gt;|" HorizontalAlignment="Left" Margin="391,317,0,0" VerticalAlignment="Top" Width="62" Click="btnEnd_Click" RenderTransformOrigin="0.452,1.455"/>
+        <Label x:Name="lblRecord" Content="" HorizontalAlignment="Left" Margin="350,275,0,0" VerticalAlignment="Top" Width="103" Foreground="#FFFBF6F6"/>
+        <Label Content="Search For:" HorizontalAlignment="Left" Margin="56,377,0,0" VerticalAlignment="Top" Foreground="#FFF5F1F1"/>
+        <TextBox x:Name="tbFind" HorizontalAlignment="Left" Height="23" Margin="129,378,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" TextChanged="tbFind_TextChanged"/>
+        <Button x:Name="FindBtn" Content="Find" HorizontalAlignment="Left" Margin="391,378,0,0" VerticalAlignment="Top" Width="62" Click="FindBtn_Click"/>
+        <RadioButton x:Name="rbAll" Content="All" HorizontalAlignment="Left" Margin="508,68,0,0" VerticalAlignment="Top" Foreground="White" Checked="rbAll_Checked" IsChecked="True" />
+        <RadioButton x:Name="rbFriends" Content="Friends" HorizontalAlignment="Left" Margin="508,89,0,0" VerticalAlignment="Top" Foreground="White" Checked="rbFriends_Checked"/>
+        <RadioButton x:Name="rbBusiness" Content="Business" HorizontalAlignment="Left" Margin="508,110,0,0" VerticalAlignment="Top" Foreground="White" Checked="rbBusiness_Checked"/>
     </Grid>
 </Window>

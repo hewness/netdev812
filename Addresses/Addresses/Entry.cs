@@ -13,16 +13,18 @@ namespace Addresses
         public String CSZ { get; set; }
         public String Phone { get; set; }
         public String Email { get; set; }
+        public CTypes ContactType { get; set; }
 
         public Entry() {}
 
-        public Entry(String name, String address, String csz, String phone, String email)
+        public Entry(String name, String address, String csz, String phone, String email, CTypes contactType)
         {
             Name = name;
             Address = address;
             CSZ = csz;
             Phone = phone;
             Email = email;
+            ContactType = contactType;
         }
     }
 
@@ -57,10 +59,11 @@ namespace Addresses
                 "bob@lincoln.com", "sam@peterson.com", "david@roberts.com", "john@smith.com", "steve@thompson.com",
                 "bill@williams.com"
             };
+            CTypes[] ctypes = { CTypes.Friend, CTypes.Business, CTypes.Friend, CTypes.Friend, CTypes.Friend, CTypes.Business, CTypes.Friend, CTypes.Business, CTypes.Friend, CTypes.Business };
 
             for (int x = 0; x < 10; x++)
             {
-                Entry e = new Entry(names[x], addresses[x], cszs[x], phones[x], emails[x]);
+                Entry e = new Entry(names[x], addresses[x], cszs[x], phones[x], emails[x], ctypes[x]);
                 Add(e);
             }
         }

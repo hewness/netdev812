@@ -15,21 +15,32 @@ using System.Windows.Shapes;
 
 namespace Addresses
 {
+    public enum CTypes { Friend = 1, Business = 2, All = 3 };
+    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         Entries AddressList = new Entries();
-        private int current = 0;
+        private int current;
         private Entry[] SelectedEntries;
+        private CTypes currentType;
         
         public MainWindow()
         {
             InitializeComponent();
-            SelectedEntries = AddressList.ToArray();
+            current = 0;
+            currentType = CTypes.All;
+            SelectedEntries = CreateSelectedEntries();
             Display();
         }
+
+        private Entry[] CreateSelectedEntries()
+        {
+            var entries = from ent in AddressList where ((int)(ent.ContactType) & (int)(currentType)) > 0 orderby ent.Name select ent;
+            return entries.ToArray();
+        } 
 
         void Display()
         {
@@ -39,6 +50,7 @@ namespace Addresses
             tbCSZ.Text = e.CSZ;
             tbPhone.Text = e.Phone;
             tbEmail.Text = e.Email;
+            tbContactType.Text = e.ContactType.ToString();
 
             lblRecord.Content = "Record " + (current + 1) + " of " + SelectedEntries.Length;
 
@@ -76,24 +88,22 @@ namespace Addresses
         {
             if (FindBtn.Content.Equals("Reset") || String.Empty.Equals(tbFind.Text))
             {
-                SelectedEntries = AddressList.ToArray();
+                SelectedEntries = CreateSelectedEntries();
                 FindBtn.Content = "Find";
                 current = 0;
             }
             else
             {
-                Entry[] newSelection = (from selected in AddressList where selected.Name.ToUpper().Contains(tbFind.Text.ToUpper()) select selected).ToArray();
+                Entry[] newSelection = (from selected in CreateSelectedEntries() where selected.Name.ToUpper().Contains(tbFind.Text.ToUpper()) select selected).ToArray();
 
                 if (!newSelection.Any())
                 {
                     MessageBox.Show("Cannot find records that match " + tbFind.Text);
                     return;
                 }
-                else
-                {
-                    SelectedEntries = newSelection;
-                    current = 0;
-                }
+
+                SelectedEntries = newSelection;
+                current = 0;
             }
             
             Display();
@@ -102,6 +112,33 @@ namespace Addresses
         private void tbFind_TextChanged(object sender, TextChangedEventArgs e)
         {
             FindBtn.Content = SelectedEntries.Length != AddressList.Count && String.Empty.Equals(tbFind.Text) ? "Reset" : "Find";
+        }
+
+        private void rbAll_Checked(object sender, RoutedEventArgs e)
+        {
+            currentType = CTypes.All;
+            RefreshContactType();
+        }
+
+        private void rbFriends_Checked(object sender, RoutedEventArgs e)
+        {
+            currentType = CTypes.Friend;
+            RefreshContactType();
+        }
+
+        private void rbBusiness_Checked(object sender, RoutedEventArgs e)
+        {
+            currentType = CTypes.Business;
+            RefreshContactType();
+        }
+
+        private void RefreshContactType()
+        {
+            SelectedEntries = CreateSelectedEntries();
+            current = 0;
+            FindBtn.Content = "Find";
+            tbFind.Text = String.Empty;
+            Display();
         }
     }
 }

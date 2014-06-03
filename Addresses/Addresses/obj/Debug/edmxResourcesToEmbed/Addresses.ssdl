@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AddressesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="AddressesModelStoreContainer">
+    <EntitySet Name="Email" EntityType="AddressesModel.Store.Email" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Entry" EntityType="AddressesModel.Store.Entry" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Phone" EntityType="AddressesModel.Store.Phone" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Phone__EntryId__15502E78" Association="AddressesModel.Store.FK__Phone__EntryId__15502E78">
+      <End Role="Entry" EntitySet="Entry" />
+      <End Role="Phone" EntitySet="Phone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Email_Entry" Association="AddressesModel.Store.FK_Email_Entry">
+      <End Role="Entry" EntitySet="Entry" />
+      <End Role="Email" EntitySet="Email" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Email">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EntryId" Type="int" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Entry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="CSZ" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="nchar" MaxLength="14" />
+    <Property Name="ContactType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Phone">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EntryId" Type="int" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PhoneType" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Phone__EntryId__15502E78">
+    <End Role="Entry" Type="AddressesModel.Store.Entry" Multiplicity="1" />
+    <End Role="Phone" Type="AddressesModel.Store.Phone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Phone">
+        <PropertyRef Name="EntryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Email_Entry">
+    <End Role="Entry" Type="AddressesModel.Store.Entry" Multiplicity="1" />
+    <End Role="Email" Type="AddressesModel.Store.Email" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Email">
+        <PropertyRef Name="EntryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

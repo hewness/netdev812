@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AddressesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="AddressesModelStoreContainer">
+    <EntitySet Name="Entry" EntityType="AddressesModel.Store.Entry" store:Type="Tables" store:Schema="dbo" store:Name="Entry">
+      <DefiningQuery>SELECT 
+      [Entry].[Id] AS [Id], 
+      [Entry].[Name] AS [Name], 
+      [Entry].[Address] AS [Address], 
+      [Entry].[CSZ] AS [CSZ], 
+      [Entry].[Phone] AS [Phone], 
+      [Entry].[Email] AS [Email], 
+      [Entry].[ContactType] AS [ContactType]
+      FROM [dbo].[Entry] AS [Entry]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Addresses.dbo.Entry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Entry">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="ContactType" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="CSZ" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nchar" MaxLength="14" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactType" Type="int" Nullable="false" />
+  </EntityType>
+</Schema>

@@ -24,3 +24,11 @@ C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\Address
 C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\Addresses.g.resources
 C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\Addresses.Properties.Resources.resources
 C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\Addresses.csproj.GenerateResource.Cache
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\bin\Debug\EntityFramework.dll
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\bin\Debug\EntityFramework.xml
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\EmailAddressDialog.baml
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\EmailAddressDialog.g.cs
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\EntryDialog.baml
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\EntryDialog.g.cs
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\PhoneDialog.baml
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\PhoneDialog.g.cs

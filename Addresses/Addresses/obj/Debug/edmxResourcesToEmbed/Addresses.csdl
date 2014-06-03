@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AddressesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="AddressesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Emails" EntityType="AddressesModel.Email" />
+    <EntitySet Name="Entries" EntityType="AddressesModel.Entry" />
+    <EntitySet Name="Phones" EntityType="AddressesModel.Phone" />
+    <AssociationSet Name="FK_Email_Entry" Association="AddressesModel.FK_Email_Entry">
+      <End Role="Entry" EntitySet="Entries" />
+      <End Role="Email" EntitySet="Emails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Phone__EntryId__15502E78" Association="AddressesModel.FK__Phone__EntryId__15502E78">
+      <End Role="Entry" EntitySet="Entries" />
+      <End Role="Phone" EntitySet="Phones" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Email">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="EntryId" Type="Int32" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Entry" Relationship="AddressesModel.FK_Email_Entry" FromRole="Email" ToRole="Entry" />
+  </EntityType>
+  <EntityType Name="Entry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CSZ" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="14" Unicode="true" FixedLength="true" />
+    <Property Name="ContactType" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Emails" Relationship="AddressesModel.FK_Email_Entry" FromRole="Entry" ToRole="Email" />
+    <NavigationProperty Name="Phones" Relationship="AddressesModel.FK__Phone__EntryId__15502E78" FromRole="Entry" ToRole="Phone" />
+  </EntityType>
+  <EntityType Name="Phone">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="EntryId" Type="Int32" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PhoneType" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Entry" Relationship="AddressesModel.FK__Phone__EntryId__15502E78" FromRole="Phone" ToRole="Entry" />
+  </EntityType>
+  <Association Name="FK_Email_Entry">
+    <End Role="Entry" Type="AddressesModel.Entry" Multiplicity="1" />
+    <End Role="Email" Type="AddressesModel.Email" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Email">
+        <PropertyRef Name="EntryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Phone__EntryId__15502E78">
+    <End Role="Entry" Type="AddressesModel.Entry" Multiplicity="1" />
+    <End Role="Phone" Type="AddressesModel.Phone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Phone">
+        <PropertyRef Name="EntryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -69,6 +69,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="frmPrint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,6 +107,9 @@
     </Compile>
     <Compile Include="Entry.cs">
       <DependentUpon>Addresses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrint.xaml.cs">
+      <DependentUpon>frmPrint.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -168,6 +175,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AddressUtils\AddressUtils.csproj">
+      <Project>{67f8afe9-2387-48d2-8c36-18464aff87b8}</Project>
+      <Name>AddressUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IUtils\IUtils.csproj">
+      <Project>{2e62c2c1-efd2-4cba-86dd-aed271587ecf}</Project>
+      <Name>IUtils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

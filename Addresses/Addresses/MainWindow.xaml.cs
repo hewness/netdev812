@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using MessageBox = System.Windows.MessageBox;
 
 namespace Addresses
@@ -41,11 +44,17 @@ namespace Addresses
         public MainWindow()
         {
             InitializeComponent();
+
+            PhoneTypeComboBox.Items.Add("Business");
+            PhoneTypeComboBox.Items.Add("Home");
+            PhoneTypeComboBox.Items.Add("Mobile");
+
             _current = 0;
             _curEmail = 0;
             _currentPhoneNumber = 0;
             _currentType = CTypes.All;
             _selectedEntries = CreateSelectedEntries();
+            
             Display();
         }
 
@@ -69,7 +78,10 @@ namespace Addresses
                 if (_selectedPhones.Length > 0)
                 {
                     Phone phone = _selectedPhones[_currentPhoneNumber];
-                    tbPhone.Text = phone.PhoneNumber + " (" + ((PTypes)phone.PhoneType) + ")";
+                    tbPhone.Text = phone.PhoneNumber;
+                    
+                    if (PhoneTypeComboBox != null)
+                        PhoneTypeComboBox.SelectedIndex = phone.PhoneType;
                 }
                 else
                 {
@@ -266,7 +278,7 @@ namespace Addresses
             if ("Update".Equals(updateButton.Content))
             {
                 updateButton.Content = "Save";
-                toggleEnabledTextBoxes(true);
+                ToggleEnabledField(true);
             }
             else
             {
@@ -283,23 +295,30 @@ namespace Addresses
 
                 DB.Emails.AddOrUpdate(email);
 
+                Phone phone = _selectedPhones[_currentPhoneNumber];
+                phone.PhoneNumber = tbPhone.Text;
+                phone.PhoneType = PhoneTypeComboBox.SelectedIndex;
+
+                DB.Phones.AddOrUpdate(phone);
+
                 DB.SaveChanges();
 
                 updateButton.Content = "Update";
                 
-                toggleEnabledTextBoxes(false);
+                ToggleEnabledField(false);
 
                 Display();
             }
         }
 
-        private void toggleEnabledTextBoxes(bool toggle)
+        private void ToggleEnabledField(bool toggle)
         {
             tbName.IsEnabled = toggle;
             tbAddress.IsEnabled = toggle;
             tbCSZ.IsEnabled = toggle;
             tbPhone.IsEnabled = toggle;
             tbEmail.IsEnabled = toggle;
+            PhoneTypeComboBox.IsEnabled = toggle;
         }
 
         private void btnDeleteEntry_Click(object sender, RoutedEventArgs e)
@@ -359,5 +378,95 @@ namespace Addresses
                 Display();
             }
         }
+
+        private void btnCopy_Click(object sender, RoutedEventArgs e)
+        {
+            Entry ent = _selectedEntries[_current];
+            AddressUtils.ClipboardUtils.CopyToClipboard(ent.Name, ent.Address, ent.CSZ);
+        }
+
+        private void btnMap_Click(object sender, RoutedEventArgs e)
+        {
+            Entry ent = _selectedEntries[_current];
+            IUtils.Maps.Lookup(ent.Address, ent.CSZ);
+        }
+
+        private void SaveDataXMLBtn_Click(object sender, RoutedEventArgs e)
+        {
+            XElement xe = CreateAddressXML();
+            xe.Save("Entries.xml");
+        }
+
+        private XElement CreateAddressXML()
+        {
+            XElement xDoc = new XElement("Addresses",
+                from c in DB.Entries.ToArray()
+                select new XElement("Entry",
+                  new XAttribute("ID", c.Id),
+                  new XAttribute("Name", c.Name),
+                  new XAttribute("Address", c.Address),
+                  new XAttribute("CSZ", c.CSZ),
+                    from e in DB.Emails.ToArray()
+                    where e.EntryId == c.Id
+                    select new XElement("Email",
+                      new XAttribute("RecID", e.Id),
+                      new XAttribute("ID", e.EntryId),
+                      new XAttribute("EmailAddress", e.EmailAddress)),
+                    from p in DB.Phones.ToArray()
+                    where p.EntryId == c.Id
+                    select new XElement("Phone",
+                      new XAttribute("PhoneID", p.Id),
+                      new XAttribute("ID", p.EntryId),
+                      new XAttribute("PhoneNum", p.PhoneNumber),
+                      new XAttribute("Type", p.PhoneType))));
+            return xDoc;
+        }
+
+        frmPrint printform = null;    // New Class Variable
+
+        private void btnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            BackgroundWorker printthread = new BackgroundWorker();
+            printthread.DoWork += Print;
+            printthread.ProgressChanged += PrintProgress;
+            printthread.RunWorkerCompleted += PrintCompleted;
+            printthread.WorkerReportsProgress = true;
+            printthread.WorkerSupportsCancellation = true;
+
+            printform = new frmPrint(printthread); // Create form
+            printthread.RunWorkerAsync();  // Call DoWork()
+            // Display form, if cancelled say so
+            if (printform.ShowDialog() == false)
+                MessageBox.Show("Printing Aborted");
+        }
+
+        private void PrintProgress(object sender, ProgressChangedEventArgs e)
+        {
+            printform.UpdateProgress(e.ProgressPercentage);
+        }
+
+        private void PrintCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            printform.DialogResult = (e.Cancelled == true ? false : true);
+            printform.Close();
+        }
+
+        public void Print(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker thread = (BackgroundWorker)sender;
+            int currentpct = 0;
+            do
+            {
+                if (thread.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+                thread.ReportProgress(currentpct);
+                Thread.Sleep(250);
+                currentpct += 5;
+            } while (currentpct <= 100);
+        }
+
     }
 }

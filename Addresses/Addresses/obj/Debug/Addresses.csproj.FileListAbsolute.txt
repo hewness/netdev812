@@ -32,3 +32,9 @@ C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\EntryDi
 C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\EntryDialog.g.cs
 C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\PhoneDialog.baml
 C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\PhoneDialog.g.cs
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\bin\Debug\AddressUtils.dll
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\bin\Debug\AddressUtils.pdb
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\bin\Debug\IUtils.dll
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\bin\Debug\IUtils.pdb
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\frmPrint.baml
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\Addresses\obj\Debug\frmPrint.g.cs

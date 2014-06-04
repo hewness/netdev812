@@ -1,0 +1,4 @@
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\AddressUtils\bin\Debug\AddressUtils.dll
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\AddressUtils\bin\Debug\AddressUtils.pdb
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\AddressUtils\obj\Debug\AddressUtils.dll
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\AddressUtils\obj\Debug\AddressUtils.pdb

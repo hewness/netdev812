@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Addresses>
+  <Entry ID="1" Name="Bob Anderson" Address="101 Main St" CSZ="Belmont, NC 93849">
+    <Email RecID="1" ID="1" EmailAddress="bob@king.com" />
+    <Email RecID="2" ID="1" EmailAddress="bob@stiff.com" />
+    <Phone PhoneID="1" ID="1" PhoneNum="206-34-9494" Type="0" />
+  </Entry>
+  <Entry ID="3" Name="Bill Williams ninja" Address="1601 Pennsylvania Ave" CSZ="Providence, RI 29384">
+    <Email RecID="5" ID="3" EmailAddress="bill@stiff.com@" />
+    <Email RecID="6" ID="3" EmailAddress="bill@hideme.com" />
+    <Email RecID="23" ID="3" EmailAddress="" />
+    <Email RecID="24" ID="3" EmailAddress="meoe@meow.com" />
+    <Phone PhoneID="4" ID="3" PhoneNum="509-34-9496" Type="2" />
+    <Phone PhoneID="5" ID="3" PhoneNum="509-34-1234" Type="0" />
+    <Phone PhoneID="6" ID="3" PhoneNum="509-34-9494" Type="1" />
+    <Phone PhoneID="26" ID="3" PhoneNum="ninja 123" Type="1" />
+    <Phone PhoneID="27" ID="3" PhoneNum="bow" Type="1" />
+    <Phone PhoneID="28" ID="3" PhoneNum="1231231234" Type="2" />
+  </Entry>
+  <Entry ID="4" Name="Steve Thompson" Address="333 33rd W" CSZ="Miami, FL 11928">
+    <Email RecID="7" ID="4" EmailAddress="steve@stiff.com" />
+    <Email RecID="8" ID="4" EmailAddress="steve@hideme.com" />
+    <Phone PhoneID="7" ID="4" PhoneNum="123-67-1824" Type="1" />
+    <Phone PhoneID="8" ID="4" PhoneNum="617-34-4576" Type="2" />
+  </Entry>
+  <Entry ID="5" Name="John Smith" Address="9483 349th St W" CSZ="New Orleans, LA 22393">
+    <Email RecID="9" ID="5" EmailAddress="john@stiff.com" />
+    <Email RecID="10" ID="5" EmailAddress="john@hideme.com" />
+    <Phone PhoneID="9" ID="5" PhoneNum="617-67-1824" Type="0" />
+    <Phone PhoneID="10" ID="5" PhoneNum="312-82-9494" Type="1" />
+    <Phone PhoneID="11" ID="5" PhoneNum="312-34-1234" Type="2" />
+  </Entry>
+  <Entry ID="6" Name="David Roberts" Address="861 Jones Way NE" CSZ="Fargo, ND 33293">
+    <Email RecID="11" ID="6" EmailAddress="david@stiff.com" />
+    <Email RecID="12" ID="6" EmailAddress="david@hideme.com" />
+    <Phone PhoneID="12" ID="6" PhoneNum="312-34-8766" Type="0" />
+    <Phone PhoneID="13" ID="6" PhoneNum="312-82-9494" Type="2" />
+  </Entry>
+  <Entry ID="7" Name="Sam Peterson" Address="39434 W Smithson Rd" CSZ="Kirkland, WA 93322">
+    <Email RecID="13" ID="7" EmailAddress="sam@stiff.com" />
+    <Email RecID="14" ID="7" EmailAddress="sam@hideme.com" />
+    <Phone PhoneID="14" ID="7" PhoneNum="878-34-1234" Type="0" />
+    <Phone PhoneID="15" ID="7" PhoneNum="878-34-9494" Type="1" />
+  </Entry>
+  <Entry ID="8" Name="Bob Lincoln" Address="200 Belmont Pl" CSZ="Bothell, WA 93833">
+    <Email RecID="15" ID="8" EmailAddress="bob@stiff.com" />
+    <Email RecID="16" ID="8" EmailAddress="bob@hideme.com" />
+    <Phone PhoneID="16" ID="8" PhoneNum="617-34-1234" Type="0" />
+    <Phone PhoneID="17" ID="8" PhoneNum="254-34-6754" Type="1" />
+    <Phone PhoneID="18" ID="8" PhoneNum="878-82-1234" Type="1" />
+    <Phone PhoneID="19" ID="8" PhoneNum="617-34-1234" Type="0" />
+  </Entry>
+  <Entry ID="9" Name="Charlie Jones" Address="2938 N 39th St" CSZ="New York, NY 39483">
+    <Email RecID="17" ID="9" EmailAddress="charlie@stiff.com" />
+    <Email RecID="18" ID="9" EmailAddress="charlie@hideme.com" />
+    <Phone PhoneID="20" ID="9" PhoneNum="123-34-1234" Type="0" />
+    <Phone PhoneID="21" ID="9" PhoneNum="456-34-1234" Type="1" />
+  </Entry>
+  <Entry ID="10" Name="David King" Address="2349 E 83rd St" CSZ="Seattle, WA 93849">
+    <Email RecID="19" ID="10" EmailAddress="david@stiff.com" />
+    <Email RecID="20" ID="10" EmailAddress="david@hideme.com" />
+    <Phone PhoneID="22" ID="10" PhoneNum="456-34-8234" Type="0" />
+    <Phone PhoneID="23" ID="10" PhoneNum="123-82-1824" Type="2" />
+  </Entry>
+  <Entry ID="11" Name="gordon hew" Address="166 E 35th St" CSZ="Rego Park">
+    <Email RecID="22" ID="11" EmailAddress="gordonhew@gmail.com" />
+    <Phone PhoneID="25" ID="11" PhoneNum="9176900260" Type="0" />
+  </Entry>
+</Addresses>

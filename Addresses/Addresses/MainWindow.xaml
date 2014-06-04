@@ -25,7 +25,7 @@
         <Label Content="Address:" RenderTransformOrigin="0.833,-0.883" Margin="56,122,514,108" Foreground="#FFFBF7F7"/>
         <Label Content="City, State, Zip:" RenderTransformOrigin="0.833,-0.883" Margin="25,162,514,72" Foreground="#FFFDFDFD"/>
         <TextBox x:Name="tbCSZ" HorizontalAlignment="Left" Height="23" Margin="129,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" IsEnabled="False"/>
-        <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="129,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" IsEnabled="False"/>
+        <TextBox x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="129,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" IsEnabled="False"/>
         <Label Content="Phone:" RenderTransformOrigin="0.833,-0.883" Margin="66,203,514,26" Foreground="#FFFBFBFB"/>
         <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="129,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" IsEnabled="False"/>
         <Label Content="Email:" RenderTransformOrigin="0.833,-0.883" Margin="66,244,514,0" Foreground="#FFFBFBFB"/>
@@ -46,11 +46,12 @@
         <Button Content="Change..." HorizontalAlignment="Left" Margin="628,77,0,0" VerticalAlignment="Top" Width="75" Click="btnChangeEntry_Click" Height="22"/>
         <Button x:Name="updateButton" Content="Update" HorizontalAlignment="Left" Margin="628,108,0,0" VerticalAlignment="Top" Width="75" Click="btnUpdateEntry_Click" Height="22"/>
         <Button Content="Delete" HorizontalAlignment="Left" Margin="628,137,0,0" VerticalAlignment="Top" Width="75" Click="btnDeleteEntry_Click" Height="22"/>
-        <Button x:Name="btnPrint" Content="Print" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="47" Click="btnStart_Click" Grid.Row="1" Height="22"/>
-        <Button x:Name="btnCopy" Content="Copy" HorizontalAlignment="Right" Margin="0,47,631,0" VerticalAlignment="Top" Width="48" Click="btnStart_Click" Grid.Row="1" Height="22"/>
-        <Button x:Name="btnMap" Content="Map" HorizontalAlignment="Left" Margin="463,47,0,0" VerticalAlignment="Top" Width="47" Click="btnStart_Click" Grid.Row="1" Height="22"/>
+        <Button x:Name="btnPrint" Content="Print" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="47" Click="btnPrint_Click" Grid.Row="1" Height="22"/>
+        <Button x:Name="btnCopy" Content="Copy" HorizontalAlignment="Right" Margin="0,47,631,0" VerticalAlignment="Top" Width="48" Click="btnCopy_Click" Grid.Row="1" Height="22"/>
+        <Button x:Name="btnMap" Content="Map" HorizontalAlignment="Left" Margin="463,47,0,0" VerticalAlignment="Top" Width="47" Click="btnMap_Click" Grid.Row="1" Height="22"/>
         <Button x:Name="btnNextPhone" Content="&gt;" HorizontalAlignment="Left" Margin="463,207,0,0" VerticalAlignment="Top" Width="31" Click="btnNextPhone_Click" Height="22"/>
         <Button x:Name="btnAddPhone" Content="+" HorizontalAlignment="Left" Margin="508,207,0,0" VerticalAlignment="Top" Width="30" Click="btnAddPhone_Click" Height="22"/>
-        <Button x:Name="SaveDataXMLBtn" Content="Save Data As XML" HorizontalAlignment="Left" Margin="577,22,0,0" VerticalAlignment="Top" Width="126" Click="FindBtn_Click" Grid.Row="2" Height="22"/>
+        <Button x:Name="SaveDataXMLBtn" Content="Save Data As XML" HorizontalAlignment="Left" Margin="577,22,0,0" VerticalAlignment="Top" Width="126" Click="SaveDataXMLBtn_Click" Grid.Row="2" Height="22"/>
+        <ComboBox x:Name="PhoneTypeComboBox" HorizontalAlignment="Left" Margin="333,206,0,0" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
     </Grid>
 </Window>

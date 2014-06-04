@@ -3,12 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="EntryDialog" Height="277" Width="407">
     <Grid>
-        <Label Content="Name:" HorizontalAlignment="Left" Margin="60,22,0,0" VerticalAlignment="Top"/>
-        <Label Content="Contact Type:" HorizontalAlignment="Left" Margin="22,53,0,0" VerticalAlignment="Top"/>
-        <Label Content="Address:" HorizontalAlignment="Left" Margin="49,80,0,0" VerticalAlignment="Top"/>
-        <Label Content="City, State, ZIP:" HorizontalAlignment="Left" Margin="16,111,0,0" VerticalAlignment="Top"/>
-        <Label Content="Phone:" HorizontalAlignment="Left" Margin="58,142,0,0" VerticalAlignment="Top"/>
-        <Label Content="Email:" HorizontalAlignment="Left" Margin="63,168,0,0" VerticalAlignment="Top"/>
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF012DF3" Offset="0.318"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="60,22,0,0" VerticalAlignment="Top" Foreground="#FFFFFEFE"/>
+        <Label Content="Contact Type:" HorizontalAlignment="Left" Margin="22,53,0,0" VerticalAlignment="Top" Foreground="#FFFFFEFE"/>
+        <Label Content="Address:" HorizontalAlignment="Left" Margin="49,80,0,0" VerticalAlignment="Top" Foreground="#FFFFFEFE"/>
+        <Label Content="City, State, ZIP:" HorizontalAlignment="Left" Margin="16,111,0,0" VerticalAlignment="Top" Foreground="#FFFFFEFE"/>
+        <Label Content="Phone:" HorizontalAlignment="Left" Margin="58,142,0,0" VerticalAlignment="Top" Foreground="#FFFFFEFE"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="63,168,0,0" VerticalAlignment="Top" Foreground="#FFFFFEFE"/>
         <Button x:Name="UpdateButton" Content="Add" HorizontalAlignment="Left" Margin="63,210,0,0" VerticalAlignment="Top" Width="75" Click="UpdateButton_Click"/>
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="205,210,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_Click"/>
         <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="109,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>

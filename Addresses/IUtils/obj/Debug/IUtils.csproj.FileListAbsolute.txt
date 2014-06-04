@@ -1,0 +1,4 @@
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\IUtils\bin\Debug\IUtils.dll
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\IUtils\bin\Debug\IUtils.pdb
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\IUtils\obj\Debug\IUtils.dll
+C:\Users\Gordon\Documents\GitHub\netdev812\Addresses\IUtils\obj\Debug\IUtils.pdb

@@ -91,7 +91,7 @@ namespace Addresses
                 _selectedEmails = e.Emails.ToArray();
                 tbEmail.Text = _selectedEmails.Length > 0 ? _selectedEmails[_curEmail].EmailAddress : String.Empty;
 
-                tbContactType.Text = e.ContactType.ToString();
+                tbContactType.Text = ((CTypes)(e.ContactType)).ToString();
                 lblRecord.Content = "Record " + (_current + 1) + " of " + _selectedEntries.Length;
             }
             else
@@ -225,9 +225,12 @@ namespace Addresses
 
             if (ead.ShowDialog() == true)
             {
-                Email rec = new Email();
-                rec.EmailAddress = ead.EmailAddress;
+                Email rec = new Email
+                {
+                    EmailAddress = ead.EmailAddress
+                };
                 _selectedEntries[_current].Emails.Add(rec);
+
                 DB.SaveChanges();
                 _selectedEmails = _selectedEntries[_current].Emails.ToArray();
                 _curEmail = _selectedEmails.Length - 1;
@@ -251,13 +254,15 @@ namespace Addresses
                     Address = entryDialog.addressTextBox.Text,
                     ContactType = entryDialog.contactTypeDropDownBox.SelectedIndex,
                     CSZ = entryDialog.cszTextBox.Text,
-                    Emails = new[] { new Email{ EmailAddress = entryDialog.emailTextBox.Text} },
-                    Phones = new[] { new Phone { PhoneNumber = entryDialog.phoneTextBox.Text, PhoneType = entryDialog.phoneTypeDropDownBox.SelectedIndex} }
+                    Emails = new List<Email>(new[] { new Email{ EmailAddress = entryDialog.emailTextBox.Text } }),
+                    Phones = new List<Phone>(new[] { new Phone { PhoneNumber = entryDialog.phoneTextBox.Text, PhoneType = entryDialog.phoneTypeDropDownBox.SelectedIndex } })
                 };
 
                 DB.Entries.Add(entry);
 
                 DB.SaveChanges();
+
+                _selectedEntries = CreateSelectedEntries();
 
                 Display();
             }
@@ -265,10 +270,35 @@ namespace Addresses
 
         private void btnChangeEntry_Click(object sender, RoutedEventArgs e)
         {
-            EntryDialog entryDialog = new EntryDialog("Change");
+            Entry entry = _selectedEntries[_current];
+            
+            EntryDialog entryDialog = new EntryDialog("Change")
+            {
+                NameTextBox = {Text = entry.Name},
+                addressTextBox = {Text = entry.Address},
+                contactTypeDropDownBox = {SelectedIndex = entry.ContactType},
+                cszTextBox = {Text = entry.CSZ},
+                emailTextBox = {Text = _selectedEmails[_curEmail].EmailAddress},
+                phoneTextBox = {Text = _selectedPhones[_currentPhoneNumber].PhoneNumber},
+                phoneTypeDropDownBox = {SelectedIndex = _selectedPhones[_currentPhoneNumber].PhoneType}
+            };
 
             if (entryDialog.ShowDialog() == true)
             {
+                entry.Name = entryDialog.NameTextBox.Text;
+                entry.Address = entryDialog.addressTextBox.Text;
+                entry.ContactType = entryDialog.contactTypeDropDownBox.SelectedIndex;
+                entry.CSZ = entryDialog.cszTextBox.Text;
+                _selectedEmails[_curEmail].EmailAddress = entryDialog.emailTextBox.Text;
+                _selectedPhones[_currentPhoneNumber].PhoneNumber = entryDialog.phoneTextBox.Text;
+                _selectedPhones[_currentPhoneNumber].PhoneType = entryDialog.phoneTypeDropDownBox.SelectedIndex;
+
+                DB.Entries.AddOrUpdate(entry);
+                DB.Phones.AddOrUpdate(_selectedPhones[_currentPhoneNumber]);
+                DB.Emails.AddOrUpdate(_selectedEmails[_curEmail]);
+                
+                DB.SaveChanges();
+                
                 Display();
             }
         }
@@ -317,8 +347,21 @@ namespace Addresses
             tbAddress.IsEnabled = toggle;
             tbCSZ.IsEnabled = toggle;
             tbPhone.IsEnabled = toggle;
-            tbEmail.IsEnabled = toggle;
             PhoneTypeComboBox.IsEnabled = toggle;
+            tbEmail.IsEnabled = toggle;
+            
+            addBtn.IsEnabled = !toggle;
+            changeBtn.IsEnabled = !toggle;
+            deleteBtn.IsEnabled = !toggle;
+            btnPrint.IsEnabled = !toggle;
+            btnCopy.IsEnabled = !toggle;
+            btnMap.IsEnabled = !toggle;
+            btnStart.IsEnabled = !toggle;
+            btnPrevious.IsEnabled = !toggle;
+            btnNext.IsEnabled = !toggle;
+            btnEnd.IsEnabled = !toggle;
+            FindBtn.IsEnabled = !toggle;
+            SaveDataXMLBtn.IsEnabled = !toggle;
         }
 
         private void btnDeleteEntry_Click(object sender, RoutedEventArgs e)
@@ -342,6 +385,7 @@ namespace Addresses
 
                 _current = 0;
                 _curEmail = 0;
+                _currentPhoneNumber = 0;
                 _selectedEntries = CreateSelectedEntries();
                 
                 Display();
